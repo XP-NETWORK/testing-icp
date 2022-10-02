@@ -22,7 +22,7 @@ const Mint = async (uri:string) => {
 }
 
 (async () => {
-    const Result = await Mint("https://meta.polkamon.com/meta?id=10001419693");
+    const Result = await Mint(Config.dfinity.url!);
     console.log(Result);
     process.exit(0);
     

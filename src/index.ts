@@ -13,11 +13,19 @@ import { config } from 'dotenv'; config();
 
 export const Config = {
     dfinity: {
+        // Chain related
         host: process.env.DFINITY_HOST!,
         bridge: process.env.DFINITY_BRIDGE!,
         xpnft: process.env.DFINITY_XPNFT!,
         umt: process.env.DFINITY_UMT!,
         wallet: process.env.DFINITY_WALLET!,
+        // Transaction related
+        to: process.env.TX_TO!,
+        mintWith: process.env.TX_MINT_WITH!,
+        selected: process.env.TX_SEL_NFT!,
+        // NFT related
+        url: process.env.NFT_URI!,
+        tokenId: process.env.NFT_ID!
     }
 }
 
