@@ -17,7 +17,7 @@ Rename the `.env.example` to `.env`
 mv .env.example .env
 ```
 
-Populate the keys of the `.env` file with the relevan values.
+Populate the keys of the `.env` file with the relevant values.
 
 
 ## Minting a testnet NFT
@@ -41,14 +41,14 @@ $ tsc && node ./dist/mint.js
 
 
 ## Listing NFTs on the ICP Testnet
-To be sure, we're bridgeing the right NFT let's see that we have it on the chain:
+To be sure we're bridging the right NFT, let's see that we have it on the chain:
 
 ```bash
-yarn list
+yarn nft-index
 ```
 
 ## Approving an NFT for Transfer
-Before the bridge is allowed to transfer an NFT it must be given the right to do so:
+Before the bridge is allowed to transfer an NFT, it must be given the right to do so:
 
 ```bash
 yarn approve
