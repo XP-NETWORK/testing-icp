@@ -4,7 +4,7 @@
   "main": "./dist/index.js",
   "license": "MIT",
   "scripts": {
-    "setup":"tsc && node ./dist/index.js",
+    "approve":"tsc && node ./dist/approve.js",
     "mint":"tsc && node ./dist/mint.js",
     "nft-index":"tsc && node ./dist/list.js",
     "transfer":"tsc && node ./dist/transfer.js"
