@@ -40,6 +40,7 @@ export const setup = async () => {
 
     // Chain handler
     const dfinity = await factory.inner(Chain.DFINITY);
+    const bsc = await factory.inner(Chain.BSC);
 
     // Generating a signer object
     const wallet: Identity = Secp256k1KeyIdentity.fromSecretKey(
@@ -64,6 +65,7 @@ export const setup = async () => {
         wallet,
         agent,
         status,
+        bsc
     }
     
 }
