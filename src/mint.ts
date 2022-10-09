@@ -1,32 +1,27 @@
-import {
-    Config,
-    setup
-} from './index';
-import { config } from 'dotenv'; config();
+import { Config, setup } from "./index";
+import { config } from "dotenv";
 
-const Mint = async (uri:string) => {
+config();
 
-    //@ts-ignore
-    const { dfinity, wallet } = await setup();
+const Mint = async (uri: string) => {
+  const { dfinity, wallet } = await setup();
 
-    const mintingResult = await dfinity.mintNft(
-        //@ts-ignore
-        wallet,
-        {
-            canisterId: Config.dfinity.umt,
-            uri
-        }
-    );
+  const mintingResult = await dfinity.mintNft(
+    wallet,
+    {
+      canisterId: Config.dfinity.umt,
+      uri,
+    },
+  );
 
-    return mintingResult;
-}
+  return mintingResult.response;
+};
 
 (async () => {
-    const Result = await Mint(Config.dfinity.url!);
-    console.log(Result);
-    process.exit(0);
-    
-})().catch(e => {
-    console.error(e);
-    process.exit(1);
-})
+  const Result = await Mint(Config.dfinity.url!);
+  console.log(Result);
+  process.exit(0);
+})().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});
