@@ -1,31 +1,26 @@
-import {
-    setup
-} from './index';
-import { config } from 'dotenv'; config();
+import { Config, setup } from "./index";
+import { config } from "dotenv";
+config();
 
 const List = async () => {
+  const {
+    dfinity,
+    wallet,
+  } = await setup();
 
-    const {
-        dfinity,
-        factory,
-        wallet
-    } = await setup();
+  const result = await dfinity.nftList(
+    wallet.getPrincipal().toString(),
+    Config.dfinity.umt,
+  );
 
-    const result = await factory.nftList(
-        dfinity,
-        wallet.getPrincipal().toString()
-    );
-
-    return result;
-
-}
+  return result;
+};
 
 (async () => {
-    const Result = await List();
-    console.log("Found NFTs:", Result);
-    process.exit(0);
-    
-})().catch(e => {
-    console.error(e);
-    process.exit(1);
-})
+  const Result = await List();
+  console.log("Found NFTs:", Result);
+  process.exit(0);
+})().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});
